@@ -10,29 +10,42 @@ import UIKit
 
 class ImageViewController: UIViewController {
     
+    
     var imageURL: URL? {
         didSet {
             image = nil
-            if view.window != nil {
-                fetchImage()
+            if view.window != nil { // if we are on screen
+                fetchImage()        //fetch image
             }
         }
     }
     
+    // MARK: private implementation
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     private func fetchImage() {
         if let url = imageURL {
-            let urlContents = try? Data(contentsOf: url)
-            if let imageData = urlContents {
-                image = UIImage(data: imageData)
+            
+            // this code blocks the UI until the image is loaded.
+            // this code should run in a different thread.
+            activityIndicator.startAnimating()
+            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+                let urlContents = try? Data(contentsOf: url)
+                if let imageData = urlContents, url == self?.imageURL {
+                    DispatchQueue.main.async {
+                        self?.image = UIImage(data: imageData)
+                    }
+                }
             }
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.addSubview(imageView)
-        imageURL = DemoURL.microsoft_cms
-    }
+    //Mark: ViewController lifecycle
+    
+//    override func viewDidLoad() { //for demo of displaying image
+//        super.viewDidLoad()
+//        imageURL = DemoURL.microsoft_cms
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -41,7 +54,18 @@ class ImageViewController: UIViewController {
         }
     }
     
-    private var imageView = UIImageView()
+    @IBOutlet weak var scrollView: UIScrollView! {
+        didSet {
+            scrollView.delegate = self
+            scrollView.minimumZoomScale = 0.03
+            scrollView.maximumZoomScale = 1.0
+            scrollView.zoomScale = 1.0
+            scrollView.contentSize = imageView.frame.size
+            scrollView.addSubview(imageView)
+        }
+    }
+    
+    var imageView = UIImageView()
     
     private var image: UIImage? {
         get {
@@ -50,7 +74,19 @@ class ImageViewController: UIViewController {
         set {
             imageView.image = newValue
             imageView.sizeToFit()
+            scrollView?.contentSize = imageView.frame.size
+            activityIndicator?.stopAnimating()
+            //imageView.isUserInteractionEnabled = true
         }
     }
     
 }
+
+extension ImageViewController:  UIScrollViewDelegate {
+
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        print("i got called")
+        return imageView
+    }
+}
+

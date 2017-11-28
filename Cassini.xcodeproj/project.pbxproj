@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E15DB8B1FCCF66100C241BE /* CassiniViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E15DB8A1FCCF66100C241BE /* CassiniViewController.swift */; };
 		1ECA3E311FCAD37200F6C17E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA3E301FCAD37200F6C17E /* AppDelegate.swift */; };
 		1ECA3E361FCAD37200F6C17E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA3E341FCAD37200F6C17E /* Main.storyboard */; };
 		1ECA3E381FCAD37200F6C17E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA3E371FCAD37200F6C17E /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E15DB8A1FCCF66100C241BE /* CassiniViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CassiniViewController.swift; sourceTree = "<group>"; };
 		1ECA3E2D1FCAD37200F6C17E /* Cassini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cassini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ECA3E301FCAD37200F6C17E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ECA3E351FCAD37200F6C17E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				1ECA3E301FCAD37200F6C17E /* AppDelegate.swift */,
+				1E15DB8A1FCCF66100C241BE /* CassiniViewController.swift */,
 				1ECA3E421FCAD39200F6C17E /* ImageViewController.swift */,
 				1ECA3E441FCAD8ED00F6C17E /* DemoURL.swift */,
 				1ECA3E341FCAD37200F6C17E /* Main.storyboard */,
@@ -142,6 +145,7 @@
 				1ECA3E431FCAD39200F6C17E /* ImageViewController.swift in Sources */,
 				1ECA3E311FCAD37200F6C17E /* AppDelegate.swift in Sources */,
 				1ECA3E451FCAD8ED00F6C17E /* DemoURL.swift in Sources */,
+				1E15DB8B1FCCF66100C241BE /* CassiniViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

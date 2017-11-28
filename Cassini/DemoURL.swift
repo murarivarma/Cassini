@@ -9,7 +9,6 @@
 import Foundation
 struct DemoURL
 {
-    static let stanford = URL(string: "http://stanford.edu/about/images/intro_about.jpg")
     static let mail = URL(string: "https://www.microsoft.com/en-in/outlook-com/img/mobile-carousel/SendAvailabilty_default.jpg")
     static let microsoft_cms = URL(string: "https://c.s-microsoft.com/en-in/CMSImages/Windows_Features_Overview_1920_FeatureImagePriority_3Dcreations_IMG.jpg?version=7c2aaec5-9fc0-b2f0-23d1-f0223ac68102")
     static var NASA: Dictionary<String,URL> = {
