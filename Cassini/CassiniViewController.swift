@@ -41,8 +41,6 @@ class CassiniViewController: UIViewController, UISplitViewControllerDelegate {
     }
 }
 
-t
-
 extension UIViewController
 {
     var contents: UIViewController {
